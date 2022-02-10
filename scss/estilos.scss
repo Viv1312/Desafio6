@@ -5,6 +5,42 @@ $tertiary: white;
 $background: #faecf3;
 $color-footer:rgb(245, 228, 228);
 $footer: #cfb1b1;
+$color-font-footer:rgb(44, 43, 43);
+
+/*mixin*/
+
+@mixin img($w,$h) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  
+}
+
+$redes:(
+twitter: #55acee,
+facebook: #3a5795,
+
+);
+
+@each $red, $color in $redes {
+  .pre--#{$red} {
+      background-color: $color;
+  }
+}
+
+.twitter:hover {
+  box-shadow: 2px 2px 2px 1px rgba(75, 146, 240, 0.2);
+}
+
+.facebook:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
 
 body {
   background-color: $background;
@@ -24,68 +60,152 @@ body {
   background-size: cover;
   height: 80%;
 
-  img {
-    height: 300px;
-    width: 250px;
-    border-radius: 20px;
-    margin: 10px;
-  }
+   img {
+     height: 400px;
+     width: 350px;
+     border-radius: 20px;
+     margin: 10px;
+   }
 
-  h1,
-  h2,
-  h3 {
+  h1{
     color: $secondary !important;
     font-style: normal;
     font-weight: lighter;
   }
+  h2 {
+    @extend h1;
+   }
+   h3 {
+     @extend h1;
+     
+   }
+    
+  
 }
 
 .logo {
   margin-right: 40px;
-  color: white;
+  color: $tertiary;
   font-style: normal;
   font-weight: lighter;
 }
 
 .img {
-  width: 100%;
-  height: 100%;
-  display: flex;
+  @include img(100%,100%);
 }
 
 .fig {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   text-align: center;
   margin: 30px;
 
-  img {
+  .image{
     margin-bottom: 40px;
-    border-radius: 20px;
+
+    img{
+      width: 90%;
+      border-radius: 20px;
+    }
   }
 }
 
-h1,
-h3,
-h4,
-p {
+h1 {
   text-align: center;
   font-weight: lighter;
 }
+h3{
+  @extend h1;
+}
+
+h4{
+  @extend h1;
+}
+p{
+  @extend h1;
+}
+
 
 .margin-bottom {
   margin-bottom: 50px;
 }
 
-.footer {
-  height: 50px;
-  line-height: 40px;
-  position: fixed;
+.my-container{
+  margin-bottom: 100px;
+}
+
+footer {
+  line-height: 70px;
   left: 0;
   bottom: 0;
   width: 100%;
+  position: fixed;
   background-color: $footer;
-  color: $color-footer;
   text-align: center;
-  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: small;
+  color: $color-font-footer;
+  font-weight:600;
+  
+
+
+  p{
+    margin-top: 23px;
+  }
+
+  ul { 
+    li{
+      display: flex;
+      flex-direction: row;
+
+      list-style-type: none;
+      h5{
+        color:$color-font-footer;
+        margin-left: 10px;
+        padding: 35px;
+        font-size: small;
+        font-weight: 600;
+
+        margin-top: 14px;
+        
+      }
+
+      a{
+        margin-top: 5px;
+      }
+
+    }
+  }
+  
+  
+  
 }
+  
+ 
+
+.icon{
+	margin-top: .625em;
+  margin-right: 15px;
+	width: 30px;
+	height: 30px; 
+  border-radius: 25px;
+
+  margin-top: 27px;
+
+  transition: all 0.2s ease;
+
+  &:hover{
+    width: 45px;
+    height: 45px;
+    margin-top: 20px;
+  }
+}
+
+
 
 
